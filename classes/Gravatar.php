@@ -131,7 +131,7 @@ namespace mako
 		* @return  int
 		*/
 
-		public function getSize()
+		public function size()
 		{
 			return $this->avatarSize;
 		}
@@ -144,7 +144,7 @@ namespace mako
 		* @return  string
 		*/
 
-		public function getAvatar($email, $ssl = false)
+		public function get($email, $ssl = false)
 		{
 			$server = ($ssl === true) ? static::API_SECURE_SERVER : static::API_SERVER;
 
