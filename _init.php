@@ -2,7 +2,7 @@
 
 // Map classes
 
-mako\ClassLoader::addClasses(array
+mako\ClassLoader::mapClasses(array
 (
 	'mako\Gravatar' => __DIR__ . '/classes/Gravatar.php',
 ));
