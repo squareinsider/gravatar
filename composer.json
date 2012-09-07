@@ -1,0 +1,16 @@
+{
+	"name": "mako/gravatar",
+	"type": "mako-package",
+	"description": "Gravatar package for Mako 2.x.x",
+	"authors": [
+		{
+			"name" : "Frederic G. Østby",
+			"email": "frederic.g.ostby@gmail.com"
+    	}
+    ],
+	"keywords": ["mako","gravatar"],
+	"require": {
+		"php": ">=5.3.1",
+		"composer/installers": "dev-master"
+	}
+}
