@@ -180,28 +180,34 @@ class Gravatar
 	 * Returns Gravatar image tag.
 	 * 
 	 * @access  public
-	 * @param   string   $email  Email address
-	 * @param   boolean  $ssl    (optional) Use SSL?
+	 * @param   string   $email       Email address
+	 * @param   array    $attributes  Image attributes
+	 * @param   boolean  $ssl         (optional) Use SSL?
 	 * @return  string
 	 */
 
-	public function getGravatar($email, $attributes = array('alt' => ''), $ssl = false)
+	public function getGravatar($email, array $attributes = array(), $ssl = false)
 	{
-		return HTML::tag('img', array_merge($attributes), array('src' => $this->getUrl($email, $ssl)));
+		return HTML::tag('img', array_merge($attributes + array('alt' => ''), array
+		(
+			'src' => $this->getUrl($email, $ssl),
+			'height' => $this->getSize(),
+			'width'  => $this->getSize()
+		)));
 	}
 
 	/**
 	 * Returns Gravatar image tag.
 	 * 
 	 * @access  public
-	 * @param   string   $email  Email address
-	 * @param   boolean  $ssl    (optional) Use SSL?
+	 * @param   string   $email       Email address
+	 * @param   array    $attributes  Image attributes
 	 * @return  string
 	 */
 
-	public function getSecureGravatar($email, $attributes = array('alt' => ''))
+	public function getSecureGravatar($email, array $attributes = array())
 	{
-		return HTML::tag('img', array_merge($attributes), array('src' => $this->getUrl($email, true)));
+		return $this->getGravatar($email, $attributes, true);
 	}
 }
 
