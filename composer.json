@@ -4,7 +4,7 @@
 	"description": "Gravatar package for Mako 2.x.x",
 	"authors": [
 		{
-			"name" : "Frederic G. Østby",
+			"name": "Frederic G. Østby",
 			"email": "frederic.g.ostby@gmail.com"
 		}
 	],
