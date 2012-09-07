@@ -2,6 +2,8 @@
 
 namespace mako;
 
+use \mako\HTML;
+
 /**
 * Class that makes it easy to implement Gravatar in your application.
 *
@@ -17,32 +19,42 @@ class Gravatar
 	//---------------------------------------------
 
 	/**
-	* URL to the API server.
-	*/
+	 * URL to the API server.
+	 * 
+	 * @var string
+	 */
 
 	const API_SERVER = 'http://www.gravatar.com/avatar/';
 
 	/**
-	* URL to the secure API server.
-	*/
+	 * URL to the secure API server.
+	 * 
+	 * @var string
+	 */
 
 	const API_SECURE_SERVER = 'https://secure.gravatar.com/avatar/';
 
 	/**
-	* Default avatar size in pixels.
-	*/
+	 * Default avatar size in pixels.
+	 * 
+	 * @var int
+	 */
 
 	protected $avatarSize = 80;
 
 	/**
-	* Default avatar rating.
-	*/
+	 * Default avatar rating.
+	 * 
+	 * @var string
+	 */
 
 	protected $avatarRating = 'g';
 
 	/**
-	* URL to the default avatar.
-	*/
+	 * URL to the default avatar.
+	 * 
+	 * @var string
+	 */
 
 	protected $defaultAvatar = 'mm';
 
@@ -51,10 +63,10 @@ class Gravatar
 	//------------------------------------------------
 
 	/**
-	* Constructor.
-	*
-	* @access  public
-	*/
+	 * Constructor.
+	 *
+	 * @access  public
+	 */
 
 	public function __construct()
 	{
@@ -62,11 +74,11 @@ class Gravatar
 	}
 
 	/**
-	* Factory method making method chaining possible right off the bat.
-	*
-	* @access  public
-	* @return  Gravatar
-	*/
+	 * Factory method making method chaining possible right off the bat.
+	 *
+	 * @access  public
+	 * @return  mako\Gravatar
+	 */
 
 	public static function factory()
 	{
@@ -78,12 +90,12 @@ class Gravatar
 	//---------------------------------------------
 
 	/**
-	* Set the size of the Gravatar. Value must be between 1 and 512.
-	*
-	* @access  public
-	* @param   int       Size of the avatar in pixels
-	* @return  Gravatar
-	*/
+	 * Set the size of the Gravatar. Value must be between 1 and 512.
+	 *
+	 * @access  public
+	 * @param   int            $size  Size of the avatar in pixels
+	 * @return  mako\Gravatar
+	 */
 
 	public function setSize($size)
 	{
@@ -93,12 +105,12 @@ class Gravatar
 	}
 
 	/**
-	* Set the max rating of the Gravatar.
-	*
-	* @access  public
-	* @param   string    Maximum rating of the gravatar
-	* @return  Gravatar
-	*/
+	 * Set the max rating of the Gravatar.
+	 *
+	 * @access  public
+	 * @param   string         $rating  Maximum rating of the gravatar
+	 * @return  mako\Gravatar
+	 */
 
 	public function setRating($rating)
 	{
@@ -110,12 +122,12 @@ class Gravatar
 	}
 
 	/**
-	* Set the url to the default Gravatar.
-	*
-	* @access  public
-	* @param   string    URL to a default avatar image
-	* @return  Gravatar
-	*/
+	 * Set the url to the default Gravatar.
+	 *
+	 * @access  public
+	 * @param   string         $default  URL to a default avatar image
+	 * @return  mako\Gravatar
+	 */
 
 	public function setDefault($default)
 	{
@@ -125,11 +137,11 @@ class Gravatar
 	}
 	
 	/**
-	* Get the image size of the Gravatar.
-	*
-	* @access  public
-	* @return  int
-	*/
+	 * Get the size of the Gravatar.
+	 *
+	 * @access  public
+	 * @return  int
+	 */
 
 	public function getSize()
 	{
@@ -137,18 +149,59 @@ class Gravatar
 	}
 
 	/**
-	* Get the url of the Gravatar.
-	*
-	* @access  public
-	* @param   string  Email address
-	* @return  string
-	*/
+	 * Returns the URL of the Gravatar.
+	 *
+	 * @access  public
+	 * @param   string   $email  Email address
+	 * @param   boolean  $ssl    (optional) Use SSL?
+	 * @return  string
+	 */
 
 	public function getUrl($email, $ssl = false)
 	{
 		$server = ($ssl === true) ? static::API_SECURE_SERVER : static::API_SERVER;
 
 		return $server . md5(trim(mb_strtolower($email))) . ".jpg?r={$this->avatarRating}&amp;s={$this->avatarSize}&amp;d={$this->defaultAvatar}";
+	}
+
+	/**
+	 * Returns the secure URL of the Gravatar.
+	 *
+	 * @access  public
+	 * @param   string  $email Email address
+	 */
+
+	public function getSecureUrl($email)
+	{
+		return $this->getUrl($email, true);
+	}
+
+	/**
+	 * Returns Gravatar image tag.
+	 * 
+	 * @access  public
+	 * @param   string   $email  Email address
+	 * @param   boolean  $ssl    (optional) Use SSL?
+	 * @return  string
+	 */
+
+	public function getGravatar($email, $attributes = array('alt' => ''), $ssl = false)
+	{
+		return HTML::tag('img', array_merge($attributes), array('src' => $this->getUrl($email, $ssl)));
+	}
+
+	/**
+	 * Returns Gravatar image tag.
+	 * 
+	 * @access  public
+	 * @param   string   $email  Email address
+	 * @param   boolean  $ssl    (optional) Use SSL?
+	 * @return  string
+	 */
+
+	public function getSecureGravatar($email, $attributes = array('alt' => ''))
+	{
+		return HTML::tag('img', array_merge($attributes), array('src' => $this->getUrl($email, true)));
 	}
 }
 
