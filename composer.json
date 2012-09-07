@@ -2,6 +2,8 @@
 	"name": "mako/gravatar",
 	"type": "mako-package",
 	"description": "Gravatar package for Mako 2.x.x",
+	"homepage": "http://makoframework.com",
+	"license": "BSD-3-Clause",
 	"authors": [
 		{
 			"name": "Frederic G. Østby",
