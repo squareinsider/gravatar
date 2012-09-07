@@ -6,8 +6,8 @@
 		{
 			"name" : "Frederic G. Østby",
 			"email": "frederic.g.ostby@gmail.com"
-    	}
-    ],
+		}
+	],
 	"keywords": ["mako","gravatar"],
 	"require": {
 		"php": ">=5.3.1",
