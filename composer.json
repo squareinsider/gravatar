@@ -2,6 +2,7 @@
 	"name": "mako/gravatar",
 	"type": "mako-package",
 	"description": "Gravatar package for Mako 2.x.x",
+	"keywords": ["mako","gravatar"],
 	"homepage": "http://makoframework.com",
 	"license": "BSD-3-Clause",
 	"authors": [
@@ -10,7 +11,6 @@
 			"email": "frederic.g.ostby@gmail.com"
 		}
 	],
-	"keywords": ["mako","gravatar"],
 	"require": {
 		"php": ">=5.3.1",
 		"composer/installers": "dev-master"
