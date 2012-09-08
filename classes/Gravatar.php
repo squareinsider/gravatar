@@ -137,7 +137,7 @@ class Gravatar
 	}
 	
 	/**
-	 * Get the size of the Gravatar.
+	 * Returns the size of the Gravatar.
 	 *
 	 * @access  public
 	 * @return  int
@@ -197,7 +197,7 @@ class Gravatar
 	}
 
 	/**
-	 * Returns Gravatar image tag.
+	 * Returns secure Gravatar image tag.
 	 * 
 	 * @access  public
 	 * @param   string   $email       Email address
