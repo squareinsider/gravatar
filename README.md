@@ -65,4 +65,4 @@ Returns Gravatar image tag.
 
 Returns secure Gravatar image tag.
 
-    $gravatar->getGravatar('user@example.org');
+    $gravatar->getSecureGravatar('user@example.org');
