@@ -1,7 +1,7 @@
 {
 	"name": "mako/gravatar",
 	"type": "mako-package",
-	"description": "Gravatar package for Mako 2.x.x",
+	"description": "Gravatar package for the Mako framework",
 	"keywords": ["mako","gravatar"],
 	"homepage": "http://makoframework.com",
 	"license": "BSD-3-Clause",
