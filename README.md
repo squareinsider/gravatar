@@ -43,26 +43,14 @@ Returns the size of the Gravatar.
 
     $gravatar->getSize();
 
-###getUrl(string $email [, boolean $ssl = false ])
+###getUrl(string $email)
 
 Returns the URL of the Gravatar.
 
     $gravatar->getUrl('user@example.org');
 
-###getSecureUrl(string $email)
-
-Returns the secure URL of the Gravatar.
-
-    $gravatar->getSecureUrl('user@example.org');
-
-###getGravatar(string $email [, array $attributes = array() [, $ssl = false]])
+###getGravatar(string $email [, array $attributes = array()])
 
 Returns Gravatar image tag.
 
     $gravatar->getGravatar('user@example.org');
-
-###getSecureGravatar(string $email [, array $attributes = array()])
-
-Returns secure Gravatar image tag.
-
-    $gravatar->getSecureGravatar('user@example.org');
