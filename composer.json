@@ -2,7 +2,7 @@
 	"name": "sqin/gravatar",
 	"description": "Framework agnostic Gravatar library",
 	"keywords": ["gravatar"],
-	"homepage": "http://makoframework.com",
+	"homepage": "http://squareinsider.com",
 	"license": "BSD-3-Clause",
 	"authors": [
 		{
