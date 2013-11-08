@@ -28,12 +28,23 @@ Set the size of the Gravatar. Value must be between 1 and 512.
 
     $gravatar->setSize(100);
 
+###getSize()
+
+Returns the size of the Gravatar.
+
+    $gravatar->getSize();
+
 ###setRating(string $rating)
 
 Set the max rating of the Gravatar.
 
     $gravatar->setRating('pg');
 
+###getSize()
+
+Returns the rating of the Gravatar.
+
+    $gravatar->getRating();
 
 ###setDefault(string $default)
 
@@ -43,9 +54,9 @@ Set the url to the default Gravatar.
 
 ###getSize()
 
-Returns the size of the Gravatar.
+Returns the urlencoded URL of the default Gravatar.
 
-    $gravatar->getSize();
+    $gravatar->getDefault();
 
 ###getUrl(string $email)
 

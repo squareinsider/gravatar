@@ -151,7 +151,7 @@ class Gravatar
 	}
 
 	/**
-	 * Returns the URL of the default Gravatar.
+	 * Returns the urlencode URL of the default Gravatar.
 	 *
 	 * @access  public
 	 * @return  int
