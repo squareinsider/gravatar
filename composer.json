@@ -12,7 +12,7 @@
 	],
 	"autoload": {
 		"psr-0": {
-			"sqin\\gravatar": "src/"
+			"sqin\\gravatar\\": "src/"
 		}
 	},
 	"require": {
