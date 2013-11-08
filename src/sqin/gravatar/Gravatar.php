@@ -172,7 +172,7 @@ class Gravatar
 
 	public function getURL($email)
 	{
-		return static::API_SERVER . md5(trim(mb_strtolower($email))) . ".jpg?r={$this->avatarRating}&amp;s={$this->avatarSize}&amp;d={$this->defaultAvatar}";
+		return static::API_SERVER . md5(trim(mb_strtolower($email))) . "?r={$this->avatarRating}&amp;s={$this->avatarSize}&amp;d={$this->defaultAvatar}";
 	}
 
 	/**

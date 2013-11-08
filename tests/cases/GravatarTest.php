@@ -77,7 +77,7 @@ class GravatarTest extends PHPUnit_Framework_TestCase
 	{
 		$gravatar = new Gravatar();
 
-		$this->assertEquals('//www.gravatar.com/avatar/64f677e30cd713a9467794a26711e42d.jpg?r=g&amp;s=80&amp;d=mm', $gravatar->getURL('foo@example.org'));
+		$this->assertEquals('//www.gravatar.com/avatar/64f677e30cd713a9467794a26711e42d?r=g&amp;s=80&amp;d=mm', $gravatar->getURL('foo@example.org'));
 
 		$gravatar = new Gravatar();
 
@@ -87,7 +87,7 @@ class GravatarTest extends PHPUnit_Framework_TestCase
 
 		$gravatar->setDefault('http://example.org/default.jpg');
 
-		$this->assertEquals('//www.gravatar.com/avatar/64f677e30cd713a9467794a26711e42d.jpg?r=pg&amp;s=100&amp;d=http%3A%2F%2Fexample.org%2Fdefault.jpg', $gravatar->getURL('foo@example.org'));
+		$this->assertEquals('//www.gravatar.com/avatar/64f677e30cd713a9467794a26711e42d?r=pg&amp;s=100&amp;d=http%3A%2F%2Fexample.org%2Fdefault.jpg', $gravatar->getURL('foo@example.org'));
 	}
 
 	/**
@@ -98,10 +98,10 @@ class GravatarTest extends PHPUnit_Framework_TestCase
 	{
 		$gravatar = new Gravatar();
 
-		$this->assertEquals('<img src="//www.gravatar.com/avatar/64f677e30cd713a9467794a26711e42d.jpg?r=g&amp;s=80&amp;d=mm" alt="" width="80" height="80">', $gravatar->getGravatar('foo@example.org'));
+		$this->assertEquals('<img src="//www.gravatar.com/avatar/64f677e30cd713a9467794a26711e42d?r=g&amp;s=80&amp;d=mm" alt="" width="80" height="80">', $gravatar->getGravatar('foo@example.org'));
 
 		$gravatar = new Gravatar();
 
-		$this->assertEquals('<img src="//www.gravatar.com/avatar/64f677e30cd713a9467794a26711e42d.jpg?r=g&amp;s=80&amp;d=mm" alt="foo" class="bar" width="80" height="80">', $gravatar->getGravatar('foo@example.org', array('alt' => 'foo', 'class' => 'bar')));
+		$this->assertEquals('<img src="//www.gravatar.com/avatar/64f677e30cd713a9467794a26711e42d?r=g&amp;s=80&amp;d=mm" alt="foo" class="bar" width="80" height="80">', $gravatar->getGravatar('foo@example.org', array('alt' => 'foo', 'class' => 'bar')));
 	}
 }
