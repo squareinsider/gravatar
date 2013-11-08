@@ -89,9 +89,21 @@ class Gravatar
 
 	public function setSize($size)
 	{
-		$this->avatarSize = ((int) $size <= 512 && (int) $size >= 1) ? (int) $size : 80;
+		$this->avatarSize = max(min((int) $size, 512), 1);
 
 		return $this;
+	}
+
+	/**
+	 * Returns the size of the Gravatar.
+	 *
+	 * @access  public
+	 * @return  int
+	 */
+
+	public function getSize()
+	{
+		return $this->avatarSize;
 	}
 
 	/**
@@ -112,7 +124,19 @@ class Gravatar
 	}
 
 	/**
-	 * Set the url to the default Gravatar.
+	 * Returns the rating of the Gravatar.
+	 *
+	 * @access  public
+	 * @return  int
+	 */
+
+	public function getRating()
+	{
+		return $this->avatarRating;
+	}
+
+	/**
+	 * Set the URL to the default Gravatar.
 	 *
 	 * @access  public
 	 * @param   string         $default  URL to a default avatar image
@@ -125,17 +149,17 @@ class Gravatar
 
 		return $this;
 	}
-	
+
 	/**
-	 * Returns the size of the Gravatar.
+	 * Returns the URL of the default Gravatar.
 	 *
 	 * @access  public
 	 * @return  int
 	 */
 
-	public function getSize()
+	public function getDefault()
 	{
-		return $this->avatarSize;
+		return $this->defaultAvatar;
 	}
 
 	/**
@@ -165,8 +189,8 @@ class Gravatar
 		$attributes = $attributes + array
 		(
 			'alt'    => '', 
+			'width'  => $this->avatarSize, 
 			'height' => $this->avatarSize, 
-			'width'  => $this->avatarSize,
 		);
 
 		$attrs = '';
@@ -181,7 +205,7 @@ class Gravatar
 			$attrs .= $attribute . '="' . $value . '" ';
 		}
 
-		return sprintf('<img src="%s" %s>', $this->getUrl($email), trim($attrs));
+		return sprintf('<img src="%s" %s>', $this->getURL($email), trim($attrs));
 	}
 }
 
