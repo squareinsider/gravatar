@@ -1,8 +1,7 @@
 {
-	"name": "mako/gravatar",
-	"type": "mako-package",
-	"description": "Gravatar package for the Mako framework",
-	"keywords": ["mako","gravatar"],
+	"name": "sqin/gravatar",
+	"description": "Framework agnostic Gravatar library",
+	"keywords": ["gravatar"],
 	"homepage": "http://makoframework.com",
 	"license": "BSD-3-Clause",
 	"authors": [
@@ -11,8 +10,12 @@
 			"email": "frederic.g.ostby@gmail.com"
 		}
 	],
+	"autoload": {
+		"psr-0": {
+			"sqin\\gravatar": "src/"
+		}
+	},
 	"require": {
 		"php": ">=5.3.1",
-		"composer/installers": "*"
 	}
 }

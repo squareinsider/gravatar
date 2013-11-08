@@ -1,11 +1,9 @@
 <?php
 
-namespace mako;
-
-use \mako\HTML;
+namespace sqin\gravatar;
 
 /**
- * Class that makes it easy to implement Gravatar in your application.
+ * Gravatar library.
  *
  * @author     Frederic G. Østby
  * @copyright  (c) 2008-2012 Frederic G. Østby
@@ -24,15 +22,7 @@ class Gravatar
 	 * @var string
 	 */
 
-	const API_SERVER = 'http://www.gravatar.com/avatar/';
-
-	/**
-	 * URL to the secure API server.
-	 * 
-	 * @var string
-	 */
-
-	const API_SECURE_SERVER = 'https://secure.gravatar.com/avatar/';
+	const API_SERVER = '//www.gravatar.com/avatar/';
 
 	/**
 	 * Default avatar size in pixels.
@@ -153,27 +143,12 @@ class Gravatar
 	 *
 	 * @access  public
 	 * @param   string   $email  Email address
-	 * @param   boolean  $ssl    (optional) Use SSL?
 	 * @return  string
 	 */
 
-	public function getUrl($email, $ssl = false)
+	public function getURL($email)
 	{
-		$server = ($ssl === true) ? static::API_SECURE_SERVER : static::API_SERVER;
-
-		return $server . md5(trim(mb_strtolower($email))) . ".jpg?r={$this->avatarRating}&amp;s={$this->avatarSize}&amp;d={$this->defaultAvatar}";
-	}
-
-	/**
-	 * Returns the secure URL of the Gravatar.
-	 *
-	 * @access  public
-	 * @param   string  $email Email address
-	 */
-
-	public function getSecureUrl($email)
-	{
-		return $this->getUrl($email, true);
+		return static::API_SERVER . md5(trim(mb_strtolower($email))) . ".jpg?r={$this->avatarRating}&amp;s={$this->avatarSize}&amp;d={$this->defaultAvatar}";
 	}
 
 	/**
@@ -182,32 +157,31 @@ class Gravatar
 	 * @access  public
 	 * @param   string   $email       Email address
 	 * @param   array    $attributes  Image attributes
-	 * @param   boolean  $ssl         (optional) Use SSL?
 	 * @return  string
 	 */
 
 	public function getGravatar($email, array $attributes = array(), $ssl = false)
 	{
-		return HTML::tag('img', array_merge($attributes + array('alt' => ''), array
+		$attributes = $attributes + array
 		(
-			'src' => $this->getUrl($email, $ssl),
-			'height' => $this->getSize(),
-			'width'  => $this->getSize()
-		)));
-	}
+			'alt'    => '', 
+			'height' => $this->avatarSize, 
+			'width'  => $this->avatarSize,
+		);
 
-	/**
-	 * Returns secure Gravatar image tag.
-	 * 
-	 * @access  public
-	 * @param   string   $email       Email address
-	 * @param   array    $attributes  Image attributes
-	 * @return  string
-	 */
+		$attrs = '';
 
-	public function getSecureGravatar($email, array $attributes = array())
-	{
-		return $this->getGravatar($email, $attributes, true);
+		foreach($attributes as $attribute => $value)
+		{
+			if(is_int($attribute))
+			{
+				$attribute = $value;
+			}
+
+			$attrs .= $attribute . '="' . $value . '" ';
+		}
+
+		return sprintf('<img src="%s" %s>', $this->getUrl($email), trim($attrs));
 	}
 }
 
