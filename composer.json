@@ -12,10 +12,9 @@
 	],
 	"autoload": {
 		"psr-0": {
-			"sqin\\gravatar\\": "src/"
+			"sqin": "src/"
 		}
 	},
-	"target-dir": "sqin/gravatar",
 	"require": {
 		"php": ">=5.3.1"
 	}
