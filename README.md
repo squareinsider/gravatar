@@ -40,7 +40,7 @@ Set the max rating of the Gravatar.
 
     $gravatar->setRating('pg');
 
-###getSize()
+###getRating()
 
 Returns the rating of the Gravatar.
 
@@ -52,7 +52,7 @@ Set the url to the default Gravatar.
 
     $gravatar->setDefault('http://example.org/default_avatar.png');
 
-###getSize()
+###getDefault()
 
 Returns the urlencoded URL of the default Gravatar.
 
