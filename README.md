@@ -1,5 +1,9 @@
 #Gravatar
 
+[![Build Status](https://travis-ci.org/squareinsider/gravatar.png)](https://travis-ci.org/squareinsider/gravatar)
+[![Latest Stable Version](https://poser.pugx.org/sqin/gravatar/v/stable.png)](https://packagist.org/packages/sqin/gravatar)
+[![Latest Unstable Version](https://poser.pugx.org/sqin/gravatar/v/unstable.png)](https://packagist.org/packages/sqin/gravatar)
+
 ##Description
 
 The Gravatar package allows you to easily implement Gravatars in your application.
