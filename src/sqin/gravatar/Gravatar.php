@@ -67,7 +67,7 @@ class Gravatar
 	 * Factory method making method chaining possible right off the bat.
 	 *
 	 * @access  public
-	 * @return  mako\Gravatar
+	 * @return  \sqin\gravatar\Gravatar
 	 */
 
 	public static function factory()
@@ -84,7 +84,7 @@ class Gravatar
 	 *
 	 * @access  public
 	 * @param   int            $size  Size of the avatar in pixels
-	 * @return  mako\Gravatar
+	 * @return  \sqin\gravatar\Gravatar
 	 */
 
 	public function setSize($size)
@@ -111,7 +111,7 @@ class Gravatar
 	 *
 	 * @access  public
 	 * @param   string         $rating  Maximum rating of the gravatar
-	 * @return  mako\Gravatar
+	 * @return  \sqin\gravatar\Gravatar
 	 */
 
 	public function setRating($rating)
@@ -140,7 +140,7 @@ class Gravatar
 	 *
 	 * @access  public
 	 * @param   string         $default  URL to a default avatar image
-	 * @return  mako\Gravatar
+	 * @return  \sqin\gravatar\Gravatar
 	 */
 
 	public function setDefault($default)
